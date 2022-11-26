@@ -1,10 +1,13 @@
 from Crypto.Hash import SHA256
 from random import getrandbits
 
+import sys
+
 class chain():
     def __init__(self, lead: int, genesis: str) -> None:
         self.lead = lead
         self.gen = self.hexToByte(genesis)
+        print(genesis)
         self.current = None
         self.allow = ['0', '1', '2', '3']
 
@@ -64,9 +67,7 @@ class chain():
         print(block)
 
 if __name__  == "__main__":
-    c = chain(10, "be1a7f6619fdebe6d2758ff5429dcb3c48d48fbf49ae5d4f815ccef85c5e0331")
-
-    c.add("""What I didn't understand was that the value of some new acquisition wasn't the difference between its retail price and what I paid for it. It was the value I derived from it. Stuff is an extremely illiquid asset. Unless you have some plan for selling that valuable thing you got so cheaply, what difference does it make what it's "worth?" The only way you're ever going to extract any value from it is to use it. And if you don't have any immediate use for it, you probably never will. -- Paul Graham""")
+    c = chain(10, sys.argv[1])
 
     while(1):
         command = input("> ")
